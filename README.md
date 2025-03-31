@@ -1,1 +1,1 @@
-# 2.Diskrit-II
+# PEWARNAAN GRAF
