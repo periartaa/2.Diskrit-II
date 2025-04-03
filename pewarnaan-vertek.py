@@ -19,10 +19,10 @@ def is_symmetric(matrix, n):
     for i in range(n):
         for j in range(n):
             if matrix[i][j] != matrix[j][i]:
-                return False
-    return True
+                return False # Jika mengembalikan “False”, berarti graf adalah graf berarah.
+    return True # Jika mengembalikan “True”, berarti graf adalah graf tidak berarah. 
 
-# Fungsi untuk menghitung derajat setiap vertex dalam graf.
+# Fungsi untuk menghitung dan mengurutkan derajat setiap vertex dalam graf.
 def hitung_derajat(matrix, n):
 
     degree = np.sum(matrix, axis=1)  # Menghitung jumlah setiap baris sebagai derajat
@@ -48,7 +48,7 @@ def pewarnaan_welch_powell(matrix, n):
             
             # Tandai semua simpul yang tidak bertetangga dengannya
             for j, _ in derajat:
-                if warna[j - 1] == -1 and all(matrix[j - 1][k] == 0 or warna[k] != warna_tersedia for k in range(n)):
+                if warna[j - 1] == -1 and all(matrix[j - 1][k] == 0 or warna[k] != warna_tersedia for k in range(n)): # memastikan vertex j tidak terhubung ke vertex lain yang sudah diberi warna saat ini
                     warna[j - 1] = warna_tersedia
     
     print("\nPewarnaan vertex:")
